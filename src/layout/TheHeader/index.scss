@@ -1,0 +1,40 @@
+$mainColor: #083866;
+.theHeaderWrapper {
+  width: 100%;
+  padding: 50px 30px 0px 30px;
+  height: 100px;
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    .menu_profile {
+      width: 50px;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .menu_icon {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .line {
+        width: 100%;
+        height: 5px;
+        border-radius: 6px;
+        background: $mainColor;
+        margin: 4px 0;
+        &:nth-child(2) {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

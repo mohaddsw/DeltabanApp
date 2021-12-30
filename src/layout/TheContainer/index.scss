@@ -1,0 +1,37 @@
+$bgColor:#eee;
+$bgBorderRadus:30px;
+$bgWidth:400px;
+$bgHeight:800px;
+$fontSize:1.5rem;
+$mainColor:#083866;
+$mainColor1:#0839661a;
+$mainColor2:#ffffff;
+.theCountainerAppWrapper{
+    
+    width: $bgWidth;
+    height: $bgHeight;
+    background: linear-gradient(to right,$mainColor1,$mainColor2);
+    border-radius: $bgBorderRadus;
+    font-size: $fontSize;
+    font-weight: bold;
+    color:$mainColor;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 32px 0px #757575;
+
+.theCountainerAppWrapper_body{
+    height: calc(100% - 150px);
+    width: 100%;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .5s;
+  }
+  .fade-enter,.fade-leave-to{
+    opacity: 0;
+   
+  } 
+   
+}

@@ -1,15 +1,15 @@
 <template>
   <div class="theHeaderWrapper">
-    <nav class="navgation">
-      <ul>
-        <li>
-          <router-link to="/acount">Acount</router-link>
-        </li>
-        <li>
-          <router-link to="/">Home</router-link>
-        </li>
-      </ul>
-    </nav>
+    <div class="menu">
+      <div class="menu_icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="menu_profile">
+        <img src="../../assets/personal.jpg" alt="user" />
+      </div>
+    </div>
   </div>
 </template>
 <script src="./index.js"></script>

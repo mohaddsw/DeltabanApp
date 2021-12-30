@@ -4,7 +4,9 @@
     <div class="theCountainerAppWrapper_body">
       <main class="theCountainerAppWrapper_main">
         <div class="theCountainerAppWrapper_content">
-          <router-view :key="$route.path"></router-view>
+          <transition name="fade" mode="out-in">
+            <router-view :key="$route.path"></router-view>
+          </transition>
         </div>
       </main>
     </div>
