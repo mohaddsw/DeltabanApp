@@ -1,0 +1,26 @@
+$mainColor: #083866;
+$mainColor1:#08396652;
+.theCountainerFooterWrapper {
+  width: 100%;
+  padding: 0px 30px 50px 30px;
+  height: 50px;
+  .navgation {
+    width: 100%;
+    ul {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      li {
+        a {
+          i {
+              color: $mainColor1;
+            &.active {
+              color: $mainColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}
