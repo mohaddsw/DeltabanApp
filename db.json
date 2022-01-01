@@ -1,0 +1,64 @@
+{
+    "travels": [
+        {
+          "id": 1,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 2,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 3,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 4,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 5,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 6,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 7,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 8,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 9,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 10,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 11,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        },
+        {
+          "id": 12,
+          "category": "place",
+          "image": "src/assets/images/5.jpeg"
+        }
+      ]
+}

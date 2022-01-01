@@ -8,33 +8,39 @@ export default {
       marginStyle: {
         "margin-left": null,
       },
+      position: 0,
     };
   },
+  props: ["filteredData", "change"],
   mounted() {
     this.slider = this.$refs["slider"];
   },
+  computed: {},
   methods: {
-    sliderDrag(e) {
-      console.log(e);
+    move(e, pos, count = null) {
+      let w = count * 200;
+      if (pos === "next") {
+        if (this.position < w) {
+          this.position -= 200;
+        }
+        if (this.position * -1 === w) {
+          this.position = 0;
+        }
+      } else {
+        if (this.position < 0) {
+          this.position += 200;
+        }
+      }
+      this.marginStyle["margin-left"] = this.position + "px";
     },
-    end() {
-      this.isDown = false;
-    },
-
-    start(e) {
-      this.isDown = true;
-
-      this.startX = e.pageX;
-      this.scrollLeft = this.slider.scrollLeft;
-    },
-
-    move(e) {
-      if (!this.isDown) return;
-      e.preventDefault();
-      const x = e.pageX;
-      const dist = x + this.startX;
-      this.marginStyle["margin-left"] = this.scrollLeft + dist;
-      console.log(this.marginStyle);
+  },
+  watch: {
+    change(val) {
+      if (val === true) {
+        this.marginStyle["margin-left"] = "0px";
+        this.position = 0;
+        this.$emit("changeCat");
+      }
     },
   },
 };
