@@ -1,23 +1,14 @@
 <template>
-  <div
-    class="sliderWrapper"
-    @mousedown="start"
-    @mousemove="move"
-    @mouseup="end"
-    ref="slider"
-    :style="marginStyle"
-  >
-    <div class="slider_item">
-      <img src="../../assets/images/5.jpeg" alt="" />
-      <span>Maldiv</span>
+  <div class="sliderWrapper" :style="marginStyle">
+    <div v-for="item in filteredData" :key="item.id" class="slider_item">
+      <img :src="require('../../assets/images/' + item.image)" alt="" />
+      <span>{{ item.name }}</span>
     </div>
-    <div class="slider_item">
-      <img src="../../assets/images/4.jpeg" alt="" />
-      <span>Maldiv</span>
+    <div class="next" @click="move($event, 'next', filteredData.length)">
+      <v-icon> fas fa-caret-right </v-icon>
     </div>
-    <div class="slider_item">
-      <img src="../../assets/images/3.jpeg" alt="" />
-      <span>Maldiv</span>
+    <div class="prev" @click="move($event, 'prev', filteredData.length)">
+      <v-icon> fas fa-caret-left </v-icon>
     </div>
   </div>
 </template>

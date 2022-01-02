@@ -3,8 +3,13 @@
     <h1 class="Home_title">Where would you like to go?</h1>
     <div class="Home_searchRow">
       <div class="Home_searchDiv">
-        <input type="text" />
-        <button>
+        <input
+          type="text"
+          :placeholder="searchObj.placeHolder"
+          v-model="searchObj.value"
+          @keypress.enter="search"
+        />
+        <button @click="search">
           <v-icon> fa fa-search </v-icon>
         </button>
       </div>
@@ -12,26 +17,27 @@
     <h1 class="Home_category">Category</h1>
     <div class="Home_categoriesRow">
       <div class="Home_categoriesDiv">
-        <div class="item">
-          <v-icon class="active"> fas fa-place-of-worship </v-icon>
-          <span class="active">place</span>
-        </div>
-        <div class="item">
-          <v-icon> fas fa-plane </v-icon>
-          <span>place</span>
-        </div>
-        <div class="item">
-          <v-icon> fas fa-hotel </v-icon>
-          <span>place</span>
-        </div>
-        <div class="item">
-          <v-icon> fas fa-concierge-bell </v-icon>
-          <span>place</span>
+        <div
+          @click="activeCategoryClass(cat)"
+          class="item"
+          v-for="cat in categories"
+          :key="cat.value"
+        >
+          <v-icon :class="cat.text === activeCat ? 'active' : ''">
+            {{ cat.icon }}
+          </v-icon>
+          <span :class="cat.text === activeCat ? 'active' : ''">{{
+            cat.text
+          }}</span>
         </div>
       </div>
     </div>
     <div class="Home_sliderRow">
-      <SliderComponent />
+      <SliderComponent
+        @changeCat="change = false"
+        :change="change"
+        :filteredData="filteredTravel"
+      />
     </div>
   </div>
 </template>
