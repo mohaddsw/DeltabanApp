@@ -1,0 +1,21 @@
+$bgWidth: 400px;
+$bgHeight: 800px;
+$bgBorderRadus: 30px;
+.loader {
+  width: $bgWidth;
+  height: $bgHeight;
+  background: #383838ad;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  border-radius: $bgBorderRadus;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  p {
+    color: #fff;
+    font-size: 25px;
+  }
+}

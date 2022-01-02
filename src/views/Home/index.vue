@@ -39,6 +39,7 @@
         :filteredData="filteredTravel"
       />
     </div>
+    <Loader v-if="showLoader" />
   </div>
 </template>
 <script src="./index.js"></script>

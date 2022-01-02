@@ -1,0 +1,3 @@
+export const SET_ALL_DATA = "SET_ALL_DATA";
+export const SET_ALL_CATEGORIES = "SET_ALL_CATEGORIES";
+export const SET_ERROR_MESSAGE = "SET_ERROR_MESSAGE";

@@ -1,106 +1,12 @@
 import SliderComponent from "../../components/Slider/index.vue";
+import Loader from "../../components/Loader/index.vue";
 export default {
   components: {
     SliderComponent,
+    Loader,
   },
   data() {
     return {
-      travels: [
-        {
-          id: 1,
-          category: "place",
-          image: "1.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 2,
-          category: "hotel",
-          image: "3.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 3,
-          category: "hotel",
-          image: "4.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 4,
-          category: "food",
-          image: "5.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 5,
-          category: "place",
-          image: "2.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 6,
-          category: "food",
-          image: "1.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 7,
-          category: "flight",
-          image: "2.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 8,
-          category: "flight",
-          image: "5.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 9,
-          category: "place",
-          image: "3.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 10,
-          category: "flight",
-          image: "4.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 11,
-          category: "food",
-          image: "1.jpeg",
-          name: "maldive",
-        },
-        {
-          id: 12,
-          category: "place",
-          image: "2.jpeg",
-          name: "maldive",
-        },
-      ],
-      categories: [
-        {
-          value: 1,
-          text: "place",
-          icon: "fas fa-place-of-worship",
-        },
-        {
-          value: 2,
-          text: "flight",
-          icon: "fas fa-plane",
-        },
-        {
-          value: 3,
-          text: "hotel",
-          icon: "fas fa-hotel",
-        },
-        {
-          value: 4,
-          text: "food",
-          icon: "fas fa-concierge-bell",
-        },
-      ],
       activeCat: "place",
       filteredTravel: null,
       change: false,
@@ -108,6 +14,9 @@ export default {
         placeHolder: "search",
         value: "",
       },
+      travels: null,
+      categories: null,
+      showLoader: true,
     };
   },
   methods: {
@@ -130,7 +39,26 @@ export default {
       alert(this.searchObj.value);
     },
   },
-  mounted() {
-    this.generateTravels();
+  computed: {
+    getAllData() {
+      return this.$store.getters["getAllTravels/travels"]();
+    },
+    getAllCategories() {
+      return this.$store.getters["getAllTravels/categories"]();
+    },
+  },
+  created() {
+    this.$store.dispatch("getAllTravels/getAllData", {});
+    this.$store.dispatch("getAllTravels/getAllCategories", {});
+  },
+  watch: {
+    getAllData(newVal) {
+      this.showLoader = false;
+      this.travels = newVal.data;
+      this.generateTravels();
+    },
+    getAllCategories(newVal) {
+      this.categories = newVal.data;
+    },
   },
 };
